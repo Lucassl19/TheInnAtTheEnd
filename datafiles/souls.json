@@ -1,0 +1,20 @@
+[
+  {
+    "id": "soul_01",
+    "name": "Mr. Arthur",
+    "profession": "Watchmaker",
+    "pre_request": "chamomile_tea",
+    "post_good_request": "apple_pie",
+    "post_bad_request": "black_coffee",
+    "arrival_dialogue": "Where am I? The clock stopped ticking..."
+  },
+  {
+    "id": "soul_02",
+    "name": "Catherine",
+    "profession": "Gardener",
+    "pre_request": "fresh_water",
+    "post_good_request": "fruit_salad",
+    "post_bad_request": "cold_soup",
+    "arrival_dialogue": "My hands are no longer covered in dirt. How strange."
+  }
+]
