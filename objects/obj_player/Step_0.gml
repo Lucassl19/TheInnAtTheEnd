@@ -33,19 +33,32 @@ y += y_speed;
 var _key_interact = keyboard_check_pressed(ord("E"));
 
 if (_key_interact) {
-    // Encontra o quarto amarelo mais próximo do jogador
     var _nearest_room = instance_nearest(x, y, obj_room);
     
     if (_nearest_room != noone && distance_to_object(_nearest_room) < 15) {
         
-        // Se o quarto estiver vazio, faz o check-in!
         if (_nearest_room.is_occupied == false) {
-            _nearest_room.is_occupied = true;
-            _nearest_room.image_blend = c_red; // Muda a cor do quadrado para vermelho para você ver que funcionou!
             
-            show_debug_message("Check-in feito no quarto!");
+            var _total_souls = array_length(global.souls_list);
+            
+            if (_total_souls > 0) {
+                _nearest_room.is_occupied = true;
+                _nearest_room.room_state = 1; // 1 = pre-judgment
+                _nearest_room.image_blend = c_red;
+                
+                // (provisório) Pegando uma alma aleatória
+                var _random_index = irandom(_total_souls - 1);
+                
+                _nearest_room.guest_data = global.souls_list[_random_index];
+                
+                show_debug_message("Check-in successful!");
+                show_debug_message("Guest Name: " + _nearest_room.guest_data.name);
+                show_debug_message("Wants: " + _nearest_room.guest_data.pre_request);
+                show_debug_message("Says: " + _nearest_room.guest_data.arrival_dialogue);
+            }
+            
         } else {
-            show_debug_message("Este quarto já está ocupado.");
+            show_debug_message("Quarto ocupado por " + _nearest_room.guest_data.name);
         }
     }
 }
