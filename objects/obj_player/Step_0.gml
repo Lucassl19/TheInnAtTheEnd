@@ -28,37 +28,25 @@ if (place_meeting(x, y + y_speed, obj_wall)) {
 }
 y += y_speed;
 
+//DIRAÇÃO
+if (_dir_x != 0 || _dir_y != 0) {
+    face_x = _dir_x;
+    face_y = _dir_y;
+}
 
 // INTERAÇÃO
 var _key_interact = keyboard_check_pressed(ord("E"));
 
 if (_key_interact) {
-    var _nearest_room = instance_nearest(x, y, obj_room);
+    // Calcula o ponto exato na frente do jogador
+    var _target_x = x + (face_x * interact_distance);
+    var _target_y = y + (face_y * interact_distance);
     
-    if (_nearest_room != noone && distance_to_object(_nearest_room) < 15) {
-        
-        if (_nearest_room.is_occupied == false) {
-            
-            var _total_souls = array_length(global.souls_list);
-            
-            if (_total_souls > 0) {
-                _nearest_room.is_occupied = true;
-                _nearest_room.room_state = 1; // 1 = pre-judgment
-                _nearest_room.image_blend = c_red;
-                
-                // (provisório) Pegando uma alma aleatória
-                var _random_index = irandom(_total_souls - 1);
-                
-                _nearest_room.guest_data = global.souls_list[_random_index];
-                
-                show_debug_message("Check-in successful!");
-                show_debug_message("Guest Name: " + _nearest_room.guest_data.name);
-                show_debug_message("Wants: " + _nearest_room.guest_data.pre_request);
-                show_debug_message("Says: " + _nearest_room.guest_data.arrival_dialogue);
-            }
-            
-        } else {
-            show_debug_message("Quarto ocupado por " + _nearest_room.guest_data.name);
-        }
+    // Procura por QUALQUER objeto que seja "filho" do obj_interactable naquele ponto
+    var _target = collision_point(_target_x, _target_y, obj_interactable, false, true);
+    
+    // Se encontrou algo, aciona a função interna daquele objeto!
+    if (_target != noone) {
+        _target.interact(); 
     }
 }
