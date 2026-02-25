@@ -7,3 +7,4 @@ face_x = 0;
 face_y = 1;
 interact_distance = 24;
 
+item_held = "none";

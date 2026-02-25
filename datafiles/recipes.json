@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chamomile_tea",
+    "name": "Astral Chamomile Tea",
+    "machine": "brewer", 
+    "ingredient": "moon_flower",
+    "prep_time_seconds": 3
+  },
+  {
+    "id": "black_coffee",
+    "name": "Black Coffee",
+    "machine": "brewer",
+    "ingredient": "abyss_beans",
+    "prep_time_seconds": 5
+  },
+  {
+    "id": "apple_pie",
+    "name": "Golden Apple Pie",
+    "machine": "oven",
+    "ingredient": "eden_apple",
+    "prep_time_seconds": 8
+  }
+]
