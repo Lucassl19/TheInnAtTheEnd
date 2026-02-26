@@ -68,3 +68,27 @@ if (_key_upgrade) {
         }
     }
 }
+
+//ANIMAÇÃO
+var _is_moving = (_dir_x != 0 || _dir_y != 0);
+
+if (_dir_x != 0) {
+    facing_dir = -(sign(_dir_x)); 
+}
+
+if (_is_moving) {
+    // WALKING STATE
+    anim_frame += 0.2; // Walk animation speed
+    
+    // Loop the walk animation
+    if (anim_frame > walk_end + 1 || anim_frame < walk_start) {
+        anim_frame = walk_start;
+    }
+} else {
+    // IDLE STATE
+    anim_frame += 0.1;
+    
+    if (anim_frame > idle_end + 1 || anim_frame < idle_start) {
+        anim_frame = idle_start;
+    }
+}
