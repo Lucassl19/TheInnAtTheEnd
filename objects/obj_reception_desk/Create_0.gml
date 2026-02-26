@@ -23,10 +23,13 @@ interact = function() {
         if (_empty_room != noone) {
             _empty_room.is_occupied = true;
             _empty_room.room_state = 1; 
-            _empty_room.image_blend = c_red; 
-            _empty_room.guest_data = _first_soul.soul_data;
-            
-            show_debug_message("Check-in: " + _first_soul.soul_data.name);
+            _empty_room.image_blend = c_orange; 
+            _empty_room.guest_data = _first_soul.soul_data;                        
+			
+			var _random_seconds = irandom_range(2, 5);
+			_empty_room.alarm[0] = _random_seconds * 60;
+			
+			show_debug_message("Check-in: " + _first_soul.soul_data.name);
             
             array_shift(waiting_queue);
             instance_destroy(_first_soul);

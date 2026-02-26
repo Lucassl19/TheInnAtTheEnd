@@ -10,7 +10,6 @@ x_speed = _dir_x * move_speed;
 y_speed = _dir_y * move_speed;
 
 //COLISÃO E MOVIMENTAÇÃO
-
 //Horizontal
 if (place_meeting(x + x_speed, y, obj_wall)) {
     while (!place_meeting(x + sign(x_speed), y, obj_wall)) {
@@ -36,7 +35,6 @@ if (_dir_x != 0 || _dir_y != 0) {
 
 // INTERAÇÃO
 var _key_interact = keyboard_check_pressed(ord("E"));
-
 if (_key_interact) {
     // Calcula o ponto exato na frente do jogador
     var _target_x = x + (face_x * interact_distance);
@@ -48,5 +46,25 @@ if (_key_interact) {
     // Se encontrou algo, aciona a função interna daquele objeto!
     if (_target != noone) {
         _target.interact(); 
+    }
+}
+
+//UPGRADES
+var _key_upgrade = keyboard_check_pressed(ord("F"));
+
+if (_key_upgrade) {
+    var _target_x = x + (face_x * interact_distance);
+    var _target_y = y + (face_y * interact_distance);
+    
+    // Procura o objeto na frente
+    var _target = collision_point(_target_x, _target_y, obj_interactable, false, true);
+    
+    if (_target != noone) {
+        // Verifica se esse objeto tem a função 'upgrade' antes de tentar chamá-la
+        if (variable_instance_exists(_target, "upgrade")) {
+            _target.upgrade(); 
+        } else {
+            show_debug_message("This object cannot be upgraded.");
+        }
     }
 }
