@@ -1,0 +1,94 @@
+{
+  "names_male": [
+    "Mr. Arthur",
+    "John",
+    "Barnaby",
+    "Thomas"
+  ],
+  "names_female": [
+    "Catherine",
+    "Eleanor",
+    "Rose",
+    "Mary"
+  ],
+  "professions": [
+    "Relojoeiro(a)",
+    "Jardineiro(a)",
+    "Empresario(a)",
+    "Professor(a)",
+    "Poeta",
+    "Astronauta"
+  ],
+  "pre_requests": [
+    "chamomile_tea",
+    "fresh_water"
+  ],
+  "post_good_requests": [
+    "apple_pie"
+  ],
+  "post_bad_requests": [
+    "black_coffee"
+  ],
+  "arrival_dialogues": [
+    "Where am I? The clock stopped ticking...",
+    "My hands are no longer covered in dirt. How strange.",
+    "Is this the waiting room? It feels so warm.",
+    "I was just sailing a moment ago..."
+  ],
+  "male_loadout": {
+    "layer_skin": [
+      "spr_male_skin_1",
+      "spr_male_skin_2",
+      "spr_male_skin_3"
+    ],
+    "layer_underwear": [],
+    "layer_feet": [
+      "spr_shoes"
+    ],
+    "layer_legs": [
+      "spr_blue_pants",
+      "spr_green_pants",
+      "spr_purple_pants"
+    ],
+    "layer_torso": [
+      "spr_green_shirt",
+      "spr_orange_shirt",
+      "spr_purple_shirt"
+    ],
+    "layer_hair": [
+      "spr_male_hair_1",
+      "spr_male_hair_2",
+      "spr_male_hair_3"
+    ]
+  },
+  "female_loadout": {
+    "layer_skin": [
+      "spr_female_skin_1",
+      "spr_female_skin_2",
+      "spr_female_skin_3"
+    ],
+    "layer_underwear": [
+      "spr_blue_panties_bra",
+      "spr_purple_panties_bra"
+    ],
+    "layer_feet": [
+      "spr_female_boots",
+      "spr_female_socks"
+    ],
+    "layer_legs": [
+      "spr_skirt",
+      "none"
+    ],
+    "layer_torso": [
+      "spr_blue_corset",
+      "spr_green_corset",
+      "spr_orange_corset",
+      "spr_purple_corset"
+    ],
+    "layer_hair": [
+      "spr_female_hair_1",
+      "spr_female_hair_2",
+      "spr_female_hair_3"
+    ]
+  }
+}

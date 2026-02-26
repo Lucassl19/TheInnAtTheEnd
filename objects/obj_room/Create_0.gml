@@ -7,6 +7,8 @@ guest_sprite = -1;
 // Timers
 judgment_timer = 0;
 
+guest_anim_frame = 0;
+
 interact = function() {
     var _player = obj_player;
     

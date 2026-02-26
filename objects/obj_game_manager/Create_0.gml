@@ -1,27 +1,26 @@
 global.souls_list = [];
 global.essence = 50;
+global.guest_pools = {};
+global.recipes_list = [];
 spawn_rate = 180;
 alarm[0] = spawn_rate;
 max_in_queue = 4;
+randomise();
 
 show_debug_message("iniciando");
-if (file_exists("souls.json")) {
-    
-    var _buffer = buffer_load("souls.json");
-    
+
+
+
+if (file_exists("pools.json")) {
+    var _buffer = buffer_load("pools.json");
     var _json_string = buffer_read(_buffer, buffer_string);
-    
     buffer_delete(_buffer);
     
-    global.souls_list = json_parse(_json_string);
-    
-    show_debug_message("Souls loaded! Total: " + string(array_length(global.souls_list)));
-    
+    global.guest_pools = json_parse(_json_string);
+    show_debug_message("Procedural pools loaded successfully!");
 } else {
-    show_debug_message("ERROR: souls.json not found!");
+    show_debug_message("ERROR: pools.json not found!");
 }
-
-global.recipes_list = [];
 
 if (file_exists("recipes.json")) {
     var _buffer_recipes = buffer_load("recipes.json");

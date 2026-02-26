@@ -37,8 +37,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"foots",
-    "path":"folders/Sprites/Female_Sprites/foots.yy",
+    "name":"feets",
+    "path":"folders/Sprites/Female_Sprites/feets.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

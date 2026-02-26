@@ -27,7 +27,7 @@
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Female_Sprites","folderPath":"folders/Sprites/Female_Sprites.yy","name":"Female_Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"bottom","folderPath":"folders/Sprites/Female_Sprites/bottom.yy","name":"bottom","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"foots","folderPath":"folders/Sprites/Female_Sprites/foots.yy","name":"foots","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"feets","folderPath":"folders/Sprites/Female_Sprites/feets.yy","name":"feets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"hair","folderPath":"folders/Sprites/Female_Sprites/hair.yy","name":"hair","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"skins","folderPath":"folders/Sprites/Female_Sprites/skins.yy","name":"skins","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"top","folderPath":"folders/Sprites/Female_Sprites/top.yy","name":"top","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -43,6 +43,7 @@
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"pools.json","CopyToMask":-1,"filePath":"datafiles","name":"pools.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"recipes.json","CopyToMask":-1,"filePath":"datafiles","name":"recipes.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"souls.json","CopyToMask":-1,"filePath":"datafiles","name":"souls.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
