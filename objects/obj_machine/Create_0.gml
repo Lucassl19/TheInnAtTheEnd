@@ -3,6 +3,8 @@ machine_level = 1;
 upgrade_cost = 20;
 machine_state = 0; // 0 = empty, 1 = preparing, 2 = ready
 current_recipe = -1;
+image_speed = 0;
+image_index = 0;
 interact = function() {
     var _player = obj_player;
     
@@ -22,17 +24,18 @@ interact = function() {
             }
             
             if (_found_recipe != -1) {
-                machine_state = 1;
-                current_recipe = _found_recipe;
-                
-                _player.item_held = "none";
-                              
-                alarm[0] = current_recipe.prep_time_seconds * 60;
-                
-                show_debug_message("Preparing: " + current_recipe.name);
-                image_blend = c_yellow;
-                
-            }
+		        machine_state = 1;
+		        current_recipe = _found_recipe;
+		        _player.item_held = "none";
+        
+		        var _time_seconds = current_recipe.prep_time_seconds / machine_level;
+		        alarm[0] = _time_seconds * 60;
+        
+		        // NOVO: Liga o fogão (Frame 1)
+		        image_index = 1; 
+        
+		        show_debug_message("Preparing: " + current_recipe.name);
+		    }
 			else {
                 show_debug_message("This machine cannot use " + _player.item_held);
             }
@@ -51,14 +54,13 @@ interact = function() {
     else if (machine_state == 2) {
         if (_player.item_held == "none") {
             _player.item_held = current_recipe.id;
-            show_debug_message("Collected: " + current_recipe.name);
+            
+            image_index = 0; 
             
             machine_state = 0;
             current_recipe = -1;
-            image_blend = c_white;
-        } 
-		else {
-            show_debug_message("Your hands are full!");
+        } else {
+            show_debug_message("Hands full!");
         }
     }
 }
