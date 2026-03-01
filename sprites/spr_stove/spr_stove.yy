@@ -24,7 +24,7 @@
   ],
   "name":"spr_stove",
   "nineSlice":null,
-  "origin":4,
+  "origin":7,
   "parent":{
     "name":"Tiles",
     "path":"folders/Sprites/Tiles.yy",
@@ -80,7 +80,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":15,
-    "yorigin":21,
+    "yorigin":43,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

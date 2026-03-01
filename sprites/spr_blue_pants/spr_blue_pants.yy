@@ -35,7 +35,7 @@
   ],
   "name":"spr_blue_pants",
   "nineSlice":null,
-  "origin":4,
+  "origin":7,
   "parent":{
     "name":"bottom",
     "path":"folders/Sprites/Male_Sprites/bottom.yy",
@@ -124,7 +124,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":40,
-    "yorigin":32,
+    "yorigin":64,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

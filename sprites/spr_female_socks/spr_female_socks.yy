@@ -38,7 +38,7 @@
   ],
   "name":"spr_female_socks",
   "nineSlice":null,
-  "origin":4,
+  "origin":7,
   "parent":{
     "name":"feets",
     "path":"folders/Sprites/Female_Sprites/feets.yy",
@@ -136,7 +136,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":40,
-    "yorigin":32,
+    "yorigin":64,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

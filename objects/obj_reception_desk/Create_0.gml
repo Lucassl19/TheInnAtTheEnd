@@ -8,6 +8,7 @@ if (array_length(global.souls_list) > 0) {
 }
 
 interact = function() {
+	show_debug_message("interagindo");
     if (array_length(waiting_queue) > 0) {
         
         var _first_soul = waiting_queue[0];

@@ -34,7 +34,7 @@
   ],
   "name":"spr_blue_corset",
   "nineSlice":null,
-  "origin":4,
+  "origin":7,
   "parent":{
     "name":"top",
     "path":"folders/Sprites/Female_Sprites/top.yy",
@@ -120,7 +120,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":40,
-    "yorigin":32,
+    "yorigin":64,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

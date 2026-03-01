@@ -5,7 +5,7 @@ var _key_up    = keyboard_check(ord("W"));
 
 var _dir_x = _key_right - _key_left;
 var _dir_y = _key_down - _key_up;
-
+depth = -y;
 if (can_move) {
 	x_speed = _dir_x * move_speed;
 	y_speed = _dir_y * move_speed;
@@ -33,64 +33,63 @@ if (can_move) {
 	    face_x = _dir_x;
 	    face_y = _dir_y;
 	}
+}
+// INTERAÇÃO
+var _key_interact = keyboard_check_pressed(ord("E"));
+if (_key_interact) {
+	// Calcula o ponto exato na frente do jogador
+	var _target_x = x + (face_x * interact_distance);
+	var _target_y = y + (face_y * interact_distance);
+    
+	// Procura por QUALQUER objeto que seja "filho" do obj_interactable naquele ponto
+	var _target = collision_circle(_target_x, _target_y, 12, obj_interactable, false, true);
+    
+	// Se encontrou algo, aciona a função interna daquele objeto!
+	if (_target != noone) {
+	    _target.interact(); 
+	}
+}
 
-	// INTERAÇÃO
-	var _key_interact = keyboard_check_pressed(ord("E"));
-	if (_key_interact) {
-	    // Calcula o ponto exato na frente do jogador
-	    var _target_x = x + (face_x * interact_distance);
-	    var _target_y = y + (face_y * interact_distance);
+//UPGRADES
+var _key_upgrade = keyboard_check_pressed(ord("F"));
+
+if (_key_upgrade) {
+	var _target_x = x + (face_x * interact_distance);
+	var _target_y = y + (face_y * interact_distance);
     
-	    // Procura por QUALQUER objeto que seja "filho" do obj_interactable naquele ponto
-	    var _target = collision_point(_target_x, _target_y, obj_interactable, false, true);
+	// Procura o objeto na frente
+	var _target = collision_circle(_target_x, _target_y, 12, obj_interactable, false, true);
     
-	    // Se encontrou algo, aciona a função interna daquele objeto!
-	    if (_target != noone) {
-	        _target.interact(); 
+	if (_target != noone) {
+	    // Verifica se esse objeto tem a função 'upgrade' antes de tentar chamá-la
+	    if (variable_instance_exists(_target, "upgrade")) {
+	        _target.upgrade(); 
+	    } else {
+	        show_debug_message("This object cannot be upgraded.");
 	    }
 	}
+}
 
-	//UPGRADES
-	var _key_upgrade = keyboard_check_pressed(ord("F"));
+//ANIMAÇÃO
+var _is_moving = (_dir_x != 0 || _dir_y != 0);
 
-	if (_key_upgrade) {
-	    var _target_x = x + (face_x * interact_distance);
-	    var _target_y = y + (face_y * interact_distance);
+if (_dir_x != 0) {
+	facing_dir = -(sign(_dir_x)); 
+}
+
+if (_is_moving) {
+	// WALKING STATE
+	anim_frame += 0.2; // Walk animation speed
     
-	    // Procura o objeto na frente
-	    var _target = collision_point(_target_x, _target_y, obj_interactable, false, true);
-    
-	    if (_target != noone) {
-	        // Verifica se esse objeto tem a função 'upgrade' antes de tentar chamá-la
-	        if (variable_instance_exists(_target, "upgrade")) {
-	            _target.upgrade(); 
-	        } else {
-	            show_debug_message("This object cannot be upgraded.");
-	        }
-	    }
+	// Loop the walk animation
+	if (anim_frame > walk_end + 1 || anim_frame < walk_start) {
+	    anim_frame = walk_start;
 	}
-
-	//ANIMAÇÃO
-	var _is_moving = (_dir_x != 0 || _dir_y != 0);
-
-	if (_dir_x != 0) {
-	    facing_dir = -(sign(_dir_x)); 
-	}
-
-	if (_is_moving) {
-	    // WALKING STATE
-	    anim_frame += 0.2; // Walk animation speed
+} else {
+	// IDLE STATE
+	anim_frame += 0.1;
     
-	    // Loop the walk animation
-	    if (anim_frame > walk_end + 1 || anim_frame < walk_start) {
-	        anim_frame = walk_start;
-	    }
-	} else {
-	    // IDLE STATE
-	    anim_frame += 0.1;
-    
-	    if (anim_frame > idle_end + 1 || anim_frame < idle_start) {
-	        anim_frame = idle_start;
-	    }
+	if (anim_frame > idle_end + 1 || anim_frame < idle_start) {
+	    anim_frame = idle_start;
 	}
 }

@@ -6,7 +6,7 @@ can_move = true;
 
 face_x = 0;
 face_y = 1;
-interact_distance = 24;
+interact_distance = 32;
 item_held = "none";
 
 equipped_layers = [spr_female_skin_1, spr_blue_panties_bra, spr_female_boots, spr_blue_corset, spr_female_hair_1];

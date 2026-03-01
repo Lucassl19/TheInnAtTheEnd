@@ -1,3 +1,4 @@
+event_inherited();
 if (menu_open) {
     var _up = keyboard_check_pressed(ord("W")) || keyboard_check_pressed(vk_up);
     var _down = keyboard_check_pressed(ord("S")) || keyboard_check_pressed(vk_down);
